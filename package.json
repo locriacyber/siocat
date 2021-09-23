@@ -4,5 +4,8 @@
     "pkg": "^5.3.2",
     "socket.io-client": "^4.2.0"
   },
-  "bin": "siocat.js"
+  "bin": "siocat.js",
+  "scripts": {
+    "build": "pkg . -t host"
+  }
 }
