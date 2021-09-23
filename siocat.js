@@ -19,7 +19,11 @@ function log(...args) {
 function main() {
   const uri = process.argv[2]
   if (typeof uri != "string") {
-    console.error(`Usage: ${process.argv[0]} ${process.argv[1]} URI`)
+    if (process.pkg.entrypoint) {
+      console.error(`Usage: ${process.argv0} URI`)
+    } else {
+      console.error(`Usage: ${process.argv[0]} ${process.argv[1]} URI`)
+    }
     process.exit(1)
   }
   const socket = io(uri, { autoConnect: false })
